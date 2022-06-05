@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=tetr.io
+Exec=tetrio-run
+Terminal=false
+Type=Application
+Icon=io.tetr.tetr.io
+StartupWMClass=tetrio
+

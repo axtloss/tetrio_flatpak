@@ -1,0 +1,36 @@
+app-id: io.tetr.tetr.io
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+base: org.electronjs.Electron2.BaseApp
+base-version: '21.08'
+sdk: org.freedesktop.Sdk
+command: tetrio-run
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=network
+  - --device=all
+
+modules:
+  - name: tetrio
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://tetr.io/about/desktop/builds/TETR.IO%20Setup.tar.gz
+        sha256: d400a19cf60014062dcc1a28eb06911bc0d38e659b73377ec0f06d6b7bc0b38a
+        dest: ./tetr-tarball
+      - type: file
+        path: ./tetrio-run
+      - type: file
+        path: ./io.tetr.tetr.io.desktop
+      - type: file
+        path: ./io.tetr.tetr.io.png
+    build-commands:
+      - install -Dm755 tetrio-run /app/bin/tetrio-run
+      - mkdir /app/share/applications
+      - install -D io.tetr.tetr.io.desktop /app/share/applications/io.tetr.tetr.io.desktop
+      - install -D io.tetr.tetr.io.png /app/share/icons/hicolor/128x128/apps/io.tetr.tetr.io.png
+      - chmod +x ./tetr-tarball/*
+      - mv ./tetr-tarball/* /app/bin/.
