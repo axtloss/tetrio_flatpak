@@ -5,17 +5,7 @@ A flatpak build of tetr.io
 
 ### Install flatpak-builder
 
-Debian:
-
-    sudo apt install flatpak-builder
-
-Arch:
-
-    sudo pacman -S flatpak-builder
-
-Fedora: 
-
-    sudo dnf install flatpak-builder
+    flatpak install org.flatpak.Builder
 
 ### Install dependincies
 
@@ -23,6 +13,4 @@ Fedora:
 
 ### Build/install
 
-    flatpak-builder --install build-dir io.tetr.tetr.io.yml
-
-If you get the error `flatpak system operation ConfigureRemote not allowed for user`, run command above with root perms
+    flatpak run org.flatpak.Builder --user --install build-dir io.tetr.tetr.io.yml
