@@ -18,8 +18,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://tetr.io/about/desktop/builds/TETR.IO%20Setup.tar.gz
-        sha256: d400a19cf60014062dcc1a28eb06911bc0d38e659b73377ec0f06d6b7bc0b38a
+        url: https://tetr.io/about/desktop/builds/9/TETR.IO%20Setup.tar.gz
+        sha256: b94dd30c251ac473e82f1a053eb0f33e859ac964b80d8474e17562031c619854
         dest: ./tetr-tarball
       - type: file
         path: ./tetrio-run
